@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html><script>
+    // Function to create and append a paragraph to the body
+    function addParagraph(text) {
+        const p = document.createElement('p');
+        p.textContent = text;
+        document.body.appendChild(p);
+    }
+
+    // Adding paragraphs with different texts
+    addParagraph("Hello, World!");
+    addParagraph("This is a dynamically added paragraph.");
+    addParagraph("JavaScript can manipulate the DOM.");
