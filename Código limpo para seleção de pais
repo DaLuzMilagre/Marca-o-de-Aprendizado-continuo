@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de País</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-top: 0;
+            text-align: center;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: white;
+        }
+        
+        select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
+        }
+        
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #3a7bc8;
+        }
+        
+        .result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            display: none;
+        }
+        
+        .result.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Selecione seu País</h2>
+        <form id="countryForm">
+            <label for="country">País:</label>
+            <select id="country" name="country" required>
+                <option value="">-- Selecione um país --</option>
+                <option value="India">Índia</option>
+                <option value="Canada">Canadá</option>
+                <option value="UK">Reino Unido</option>
+            </select>
+            
+            <button type="submit">Enviar</button>
+        </form>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('countryForm');
+        const result = document.getElementById('result');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const countrySelect = document.getElementById('country');
+            const selectedCountry = countrySelect.value;
+            
+            if (!selectedCountry) {
+                result.textContent = 'Por favor, selecione um país.';
+                result.className = 'result show';
+                result.style.color = '#dc3545';
+                return;
+            }
+            
+            result.textContent = `País selecionado: ${selectedCountry}`;
+            result.className = 'result show';
+            result.style.color = '#28a745';
+        });
+    </script>
+</body>
+</html>
